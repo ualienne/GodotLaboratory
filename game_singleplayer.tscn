@@ -1,22 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf3wnwihk7ymg"]
+[gd_scene format=3 uid="uid://bf3wnwihk7ymg"]
 
-[ext_resource type="Script" path="res://game.gd" id="2"]
+[ext_resource type="Script" uid="uid://2078bnnk7lw0" path="res://game.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://ctgumjaytuoch" path="res://level/level.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://vh7pmputa7r3" path="res://player/player.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://c7ai4bigaryci" path="res://gui/pause_menu_singleplayer.tscn" id="4_x6l06"]
+[ext_resource type="PackedScene" uid="uid://c3dh7xb6ef76q" path="res://level/coin.tscn" id="5_ma7jk"]
+[ext_resource type="Texture2D" uid="uid://twy8cs78gqbv" path="res://level/background/cloud_3.webp" id="6_5h3x8"]
+[ext_resource type="Texture2D" uid="uid://eeitd2vus25o" path="res://level/background/distant_platforms_1.webp" id="7_0y84f"]
+[ext_resource type="Texture2D" uid="uid://bxsmiv7k3fngt" path="res://level/platforms/moving_platform.webp" id="8_5u38p"]
+[ext_resource type="Texture2D" uid="uid://dbcbwhddtu3x" path="res://level/platforms/one_way_platform.webp" id="9_1tgvd"]
+[ext_resource type="Texture2D" uid="uid://c5xpotfxdi0ms" path="res://level/props/fern_1.webp" id="10_pfgo8"]
+[ext_resource type="Texture2D" uid="uid://bj6am5nfc0k73" path="res://level/props/grass_1.webp" id="11_xwvd8"]
+[ext_resource type="Texture2D" uid="uid://ddmq5iwm2qd1j" path="res://level/props/flower_1.webp" id="12_ttu5p"]
+[ext_resource type="Texture2D" uid="uid://bju7r7jqn8bqy" path="res://level/props/grass_2.webp" id="13_qwgbv"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=1445691280]
 process_mode = 3
 script = ExtResource("2")
 
-[node name="Level" parent="." instance=ExtResource("3")]
+[node name="Level" parent="." unique_id=1804563867 instance=ExtResource("3")]
 
-[node name="Player" parent="Level" instance=ExtResource("4")]
+[node name="Player" parent="Level" unique_id=1437718652 instance=ExtResource("4")]
 position = Vector2(90, 546)
 
-[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+[node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=1352449307]
 layer = 100
 
-[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource("4_x6l06")]
+[node name="PauseMenu" parent="InterfaceLayer" unique_id=1712895509 instance=ExtResource("4_x6l06")]
+
+[node name="Coin" parent="." unique_id=28007998 instance=ExtResource("5_ma7jk")]
+position = Vector2(91, 418)
+
+[node name="Coin2" parent="." unique_id=1469596726 instance=ExtResource("5_ma7jk")]
+position = Vector2(279, 585)
+
+[node name="Coin3" parent="." unique_id=549025125 instance=ExtResource("5_ma7jk")]
+position = Vector2(226, 573)
+
+[node name="Coin4" parent="." unique_id=711455673 instance=ExtResource("5_ma7jk")]
+position = Vector2(-150, 219)
+
+[node name="Coin5" parent="." unique_id=1770436347 instance=ExtResource("5_ma7jk")]
+position = Vector2(168, 21)
+
+[node name="Cloud3" type="Sprite2D" parent="." unique_id=1527726528]
+position = Vector2(180, 175)
+texture = ExtResource("6_5h3x8")
+
+[node name="DistantPlatforms1" type="Sprite2D" parent="." unique_id=718373958]
+position = Vector2(224, 414)
+texture = ExtResource("7_0y84f")
+
+[node name="MovingPlatform" type="Sprite2D" parent="." unique_id=1979269224]
+position = Vector2(-68, 289)
+texture = ExtResource("8_5u38p")
+
+[node name="OneWayPlatform" type="Sprite2D" parent="." unique_id=715333995]
+position = Vector2(-96, 427)
+texture = ExtResource("9_1tgvd")
+
+[node name="Fern1" type="Sprite2D" parent="." unique_id=645503906]
+position = Vector2(-63, 377)
+texture = ExtResource("10_pfgo8")
+
+[node name="Grass1" type="Sprite2D" parent="." unique_id=1106767685]
+position = Vector2(-120, 390)
+texture = ExtResource("11_xwvd8")
+
+[node name="Flower1" type="Sprite2D" parent="." unique_id=24759615]
+position = Vector2(-43, 248)
+texture = ExtResource("12_ttu5p")
+
+[node name="Grass2" type="Sprite2D" parent="." unique_id=670045030]
+position = Vector2(-90, 252)
+texture = ExtResource("13_qwgbv")
 
 [connection signal="coin_collected" from="Level/Player" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
