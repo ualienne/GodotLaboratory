@@ -1,22 +1,121 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf3wnwihk7ymg"]
+[gd_scene format=3 uid="uid://bf3wnwihk7ymg"]
 
-[ext_resource type="Script" path="res://game.gd" id="2"]
+[ext_resource type="Script" uid="uid://2078bnnk7lw0" path="res://game.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://ctgumjaytuoch" path="res://level/level.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://vh7pmputa7r3" path="res://player/player.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://t8otskslwopy" path="res://level/background/cloud_1.webp" id="4_pfgo8"]
 [ext_resource type="PackedScene" uid="uid://c7ai4bigaryci" path="res://gui/pause_menu_singleplayer.tscn" id="4_x6l06"]
+[ext_resource type="Texture2D" uid="uid://cqydct6vajobg" path="res://level/props/bush_1.webp" id="6_qwgbv"]
+[ext_resource type="Texture2D" uid="uid://dud80ds6rq6vr" path="res://level/background/cloud_2.webp" id="6_xwvd8"]
+[ext_resource type="Texture2D" uid="uid://twy8cs78gqbv" path="res://level/background/cloud_3.webp" id="7_ttu5p"]
+[ext_resource type="PackedScene" uid="uid://cw6nldo3rjyyq" path="res://level/background/parallax_background.tscn" id="8_qwgbv"]
+[ext_resource type="Texture2D" uid="uid://upfcr5xg5fvh" path="res://level/props/grass_3.webp" id="9_uncna"]
+[ext_resource type="Texture2D" uid="uid://dbcbwhddtu3x" path="res://level/platforms/one_way_platform.webp" id="10_5myw0"]
+[ext_resource type="Texture2D" uid="uid://bu54lwrkcng25" path="res://level/props/vine_2.webp" id="10_uncna"]
+[ext_resource type="Script" uid="uid://cjgr1kswq38mn" path="res://level/level.gd" id="11_c8txj"]
+[ext_resource type="Texture2D" uid="uid://bvu4vgnc84r84" path="res://level/props/vine_1.webp" id="12_i2p8h"]
+[ext_resource type="Texture2D" uid="uid://co8bwstg3ea6x" path="res://level/props/rock_1.webp" id="13_qhbpr"]
+[ext_resource type="Texture2D" uid="uid://bxsmiv7k3fngt" path="res://level/platforms/moving_platform.webp" id="14_srif3"]
+[ext_resource type="Texture2D" uid="uid://icddaryasunc" path="res://level/props/tree_1.webp" id="15_8utni"]
+[ext_resource type="Texture2D" uid="uid://cj2absxg54f75" path="res://level/coin.webp" id="16_34qhq"]
+[ext_resource type="Script" uid="uid://casp2jg3xrf58" path="res://level/coin.gd" id="17_gce2v"]
+[ext_resource type="PackedScene" uid="uid://c3dh7xb6ef76q" path="res://level/coin.tscn" id="18_g41ii"]
+[ext_resource type="Texture2D" uid="uid://c5xpotfxdi0ms" path="res://level/props/fern_1.webp" id="21_5myw0"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=2029424637]
 process_mode = 3
 script = ExtResource("2")
 
-[node name="Level" parent="." instance=ExtResource("3")]
+[node name="Level" parent="." unique_id=2067255530 instance=ExtResource("3")]
 
-[node name="Player" parent="Level" instance=ExtResource("4")]
+[node name="Player" parent="Level" unique_id=1005453300 instance=ExtResource("4")]
 position = Vector2(90, 546)
 
-[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+[node name="Cloud1" type="Sprite2D" parent="Level" unique_id=1994609392]
+position = Vector2(-333, -345)
+texture = ExtResource("4_pfgo8")
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="." unique_id=836316411]
 layer = 100
 
-[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource("4_x6l06")]
+[node name="PauseMenu" parent="InterfaceLayer" unique_id=1289412358 instance=ExtResource("4_x6l06")]
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Bush1" type="Sprite2D" parent="." unique_id=1567244734]
+position = Vector2(30, -142)
+texture = ExtResource("6_qwgbv")
+
+[node name="Cloud4" type="Sprite2D" parent="." unique_id=1250314949]
+position = Vector2(-472, -462)
+texture = ExtResource("6_xwvd8")
+
+[node name="Cloud3" type="Sprite2D" parent="Cloud4" unique_id=1239261204]
+position = Vector2(-150, -52)
+texture = ExtResource("7_ttu5p")
+
+[node name="ParallaxBackground" parent="." unique_id=204570978 instance=ExtResource("8_qwgbv")]
+
+[node name="Vine2" type="Sprite2D" parent="." unique_id=438923322]
+position = Vector2(-10, -92)
+texture = ExtResource("10_uncna")
+
+[node name="Grass3" type="Sprite2D" parent="." unique_id=1712835392]
+position = Vector2(-37, -132)
+texture = ExtResource("9_uncna")
+
+[node name="OneWayPlatform" type="Sprite2D" parent="." unique_id=2102953864]
+position = Vector2(-37, -92)
+texture = ExtResource("10_5myw0")
+script = ExtResource("11_c8txj")
+
+[node name="Grass4" type="Sprite2D" parent="." unique_id=1822178492]
+position = Vector2(-353, -240)
+texture = ExtResource("9_uncna")
+
+[node name="Vine1" type="Sprite2D" parent="." unique_id=844169047]
+position = Vector2(-304.5, -291.5)
+scale = Vector2(1.84375, 1.421875)
+texture = ExtResource("12_i2p8h")
+
+[node name="Rock1" type="Sprite2D" parent="." unique_id=1317490471]
+position = Vector2(-326, -266)
+texture = ExtResource("13_qhbpr")
+
+[node name="Grass5" type="Sprite2D" parent="." unique_id=291180928]
+position = Vector2(-299, -247)
+texture = ExtResource("9_uncna")
+
+[node name="MovingPlatform" type="Sprite2D" parent="." unique_id=242121641]
+position = Vector2(-317, -209)
+texture = ExtResource("14_srif3")
+
+[node name="Tree1" type="Sprite2D" parent="." unique_id=827682581]
+position = Vector2(-24, -180)
+texture = ExtResource("15_8utni")
+
+[node name="Coin" type="Sprite2D" parent="." unique_id=1850943672]
+position = Vector2(225, -248)
+texture = ExtResource("16_34qhq")
+script = ExtResource("17_gce2v")
+
+[node name="Coin2" parent="." unique_id=1912795553 instance=ExtResource("18_g41ii")]
+position = Vector2(209, -263)
+
+[node name="Cloud1" type="Sprite2D" parent="." unique_id=740335051]
+position = Vector2(100, -327)
+texture = ExtResource("4_pfgo8")
+
+[node name="Bush2" type="Sprite2D" parent="." unique_id=1642119325]
+position = Vector2(1306, -22)
+texture = ExtResource("6_qwgbv")
+
+[node name="Fern1" type="Sprite2D" parent="." unique_id=1790015300]
+position = Vector2(1345, -11)
+texture = ExtResource("21_5myw0")
+
+[node name="Grass6" type="Sprite2D" parent="." unique_id=1570551628]
+position = Vector2(1402, -8)
+texture = ExtResource("9_uncna")
 
 [connection signal="coin_collected" from="Level/Player" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
